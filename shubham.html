@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jesika I Love You SM ❤️</title>
+    <style>
+         :root {
+            --primary-pink: #ff4d6d;
+            --secondary-pink: #ff758f;
+            --soft-pink: #fff0f3;
+            --dark-red: #800f2f;
+            --card-bg: rgba(255, 255, 255, 0.92);
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #feada6 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+        /* Floating Background Hearts */
+        
+        .heart-bg {
+            position: absolute;
+            top: -10vh;
+            color: rgba(255, 77, 109, 0.4);
+            font-size: 20px;
+            user-select: none;
+            pointer-events: none;
+            animation: float 8s linear infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(105vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        /* Main Glassmorphism Card Container */
+        
+        .container {
+            max-width: 650px;
+            width: 100%;
+            background: var(--card-bg);
+            border-radius: 25px;
+            padding: 40px 30px;
+            box-shadow: 0 15px 35px rgba(128, 15, 47, 0.15);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            position: relative;
+            z-index: 10;
+        }
+        
+        h1 {
+            color: var(--dark-red);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: var(--primary-pink);
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        /* Interactive Button */
+        
+        .reveal-btn {
+            background: linear-gradient(45deg, var(--primary-pink), var(--secondary-pink));
+            color: white;
+            border: none;
+            padding: 15px 32px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .reveal-btn:hover {
+            transform: translateY(-3deg) scale(1.03);
+            box-shadow: 0 12px 25px rgba(255, 77, 109, 0.5);
+        }
+        /* Love Letter Expandable Section */
+        
+        .letter-card {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--soft-pink);
+            border-radius: 18px;
+            border: 1px dashed var(--secondary-pink);
+            text-align: left;
+        }
+        
+        .letter-card.open {
+            max-height: 1000px;
+            opacity: 1;
+            padding: 30px;
+            margin-top: 20px;
+        }
+        
+        .letter-text {
+            color: #4a4a4a;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            white-space: pre-line;
+        }
+        
+        .highlight {
+            color: var(--dark-red);
+            font-weight: 700;
+        }
+        
+        .footer-tag {
+            margin-top: 25px;
+            font-size: 0.85rem;
+            color: #888;
+        }
+        /* Click Burst Hearts Animation */
+        
+        .click-heart {
+            position: absolute;
+            font-size: 24px;
+            animation: clickPop 1s ease-out forwards;
+            pointer-events: none;
+        }
+        
+        @keyframes clickPop {
+            0% {
+                opacity: 1;
+                transform: scale(0.5) translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(1.5) translateY(-50px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Jesika I Love You SM ❤️</h1>
+        <p class="subtitle">Happy Girlfriend Day 💖</p>
+
+        <button class="reveal-btn" id="revealBtn" onclick="toggleLetter()">Open Your Letter 💌</button>
+
+        <div class="letter-card" id="letterCard">
+            <p class="letter-text">
+                <span class="highlight">Happy Girlfriend Day to my absolute favorite person in the entire world!</span> Words really can’t even begin to express how much I love you and how crazy grateful I am to have you in my life. You’re not just my
+                girlfriend you’re my bitch ofc , my biggest supporter and the best part of every single day and sometimes pain in the ass bitch . You have this incredible way of making me smile no matter what kind of day I’m having well every single time
+                apprently , and honestly, life just makes sense with you by my side. I want you to know that you are my forever there’s no doubt about it. I love you so, so, so much, and I’m going to keep choosing you, loving you, and annoying you every
+                single day for the rest of my life.
+
+                <span class="highlight">Happy Girlfriend Day, my love! ❤️</span>
+            </p>
+        </div>
+
+        <p class="footer-tag">Tap anywhere on the screen for a surprise ✨</p>
+    </div>
+
+    <!-- JavaScript Embedded Inside HTML -->
+    <script>
+        // Generate continuous background floating hearts
+        function createHearts() {
+            const heartSymbols = ['❤️', '💖', '💕', '💗', '💓'];
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('heart-bg');
+                heart.innerText = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
+                heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+
+                document.body.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 8000);
+            }, 400);
+        }
+
+        // Open/Close Letter Animation Trigger
+        function toggleLetter() {
+            const card = document.getElementById('letterCard');
+            const btn = document.getElementById('revealBtn');
+
+            if (!card.classList.contains('open')) {
+                card.classList.add('open');
+                btn.innerText = 'Close Letter 💖';
+                createBurstEffect();
+            } else {
+                card.classList.remove('open');
+                btn.innerText = 'Open Your Letter 💌';
+            }
+        }
+
+        // Click anywhere to pop a heart
+        document.addEventListener('click', function(e) {
+            const heart = document.createElement('div');
+            heart.classList.add('click-heart');
+            heart.innerText = '💖';
+            heart.style.left = (e.clientX - 12) + 'px';
+            heart.style.top = (e.clientY - 12) + 'px';
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 1000);
+        });
+
+        // Heart burst animation on opening letter
+        function createBurstEffect() {
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.classList.add('click-heart');
+                    heart.innerText = '❤️';
+                    heart.style.left = (window.innerWidth / 2 + (Math.random() * 200 - 100)) + 'px';
+                    heart.style.top = (window.innerHeight / 2 + (Math.random() * 200 - 100)) + 'px';
+                    document.body.appendChild(heart);
+                    setTimeout(() => heart.remove(), 1000);
+                }, i * 50);
+            }
+        }
+
+        // Initialize background animation on load
+        createHearts();
+    </script>
+</body>
+
+</html>
